@@ -16,7 +16,7 @@
 body {
     background-color: var(--fundo);
     color: var(--texto);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .container {
