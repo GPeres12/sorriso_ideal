@@ -1,3 +1,4 @@
+/*Cores Globais do site*/
 :root {
     --primaria: #007bff;
     --secundaria: #0056b3;
@@ -7,16 +8,18 @@
     --verde-whatsapp: #25d366;
 }
 
-/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*ajuda o layout*/
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*fonte padrão*/
 }
 
 html {
     scroll-behavior: smooth;
+    /*scroll suave*/
 }
 
 body {
@@ -24,6 +27,7 @@ body {
     color: var(--texto);
     line-height: 1.5;
     overflow-x: hidden;
+    /*evita scroll horizontal*/
 }
 
 .container {
@@ -32,7 +36,7 @@ body {
     margin: 0 auto;
 }
 
-/* Header e Navegação */
+/*Faz o menu ficar fixo no topo*/
 header {
     background: var(--branco);
     padding: 15px 0;
@@ -42,6 +46,7 @@ header {
     z-index: 1000;
 }
 
+/*Menu*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -58,6 +63,7 @@ nav {
     color: var(--secundaria);
 }
 
+/*Itens lado a lado*/
 nav ul {
     display: flex;
     list-style: none;
@@ -65,6 +71,7 @@ nav ul {
     align-items: center;
 }
 
+/*Remove sublinhado + efeito hover*/
 nav a {
     text-decoration: none;
     color: var(--texto);
@@ -76,6 +83,7 @@ nav a:hover {
     color: var(--primaria);
 }
 
+/*Botão destacado*/
 .contato-link {
     color: var(--secundaria);
     font-weight: bold;
@@ -92,11 +100,12 @@ nav a:hover {
     background: var(--secundaria);
 }
 
-/* Menu Mobile Toggle */
+/*Menu mobile*/
 #check {
     display: none;
 }
 
+/*Ícone aparece só no mobile*/
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -112,13 +121,13 @@ nav a:hover {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/*banner principal*/
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('https://plus.unsplash.com/premium_photo-1752073512781-bf877843bdf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('https://plus.unsplash.com/premium_photo-1752073512781-bf877843bdf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Opcional: dá um efeito de profundidade (parallax) ao rolar */
+    background-attachment: fixed;
     height: 85vh;
     display: flex;
     align-items: center;
@@ -127,6 +136,7 @@ nav a:hover {
     text-align: center;
 }
 
+/*Texto do hero*/
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
@@ -141,6 +151,7 @@ nav a:hover {
     margin-right: auto;
 }
 
+/*Botão WhatsApp*/
 .btn-cta {
     display: inline-block;
     background: var(--verde-whatsapp);
@@ -150,7 +161,7 @@ nav a:hover {
     border-radius: 50px;
     font-weight: bold;
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-cta:hover {
@@ -158,7 +169,7 @@ nav a:hover {
     background: #1eb954;
 }
 
-/* Serviços */
+
 .servicos {
     padding: 100px 0;
     text-align: center;
@@ -193,14 +204,12 @@ nav a:hover {
     color: var(--primaria);
 }
 
-/* Sobre */
 .sobre {
     padding: 80px 0;
     background: #f1f3f5;
     text-align: center;
 }
 
-/* Footer */
 footer {
     background: #222;
     color: white;
@@ -208,14 +217,18 @@ footer {
     padding: 30px 0;
 }
 
-/* RESPONSIVIDADE */
-
-@media (max-width: 992px) {
-    .hero-content h1 { font-size: 2.8rem; }
+/*Responsividade*/
+@media (max-width: 992px) { /*o @ é o indicativo de responsividade*/
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
 }
 
+/*Responsividade celular*/
 @media (max-width: 768px) {
-    .menu-icon { display: flex; }
+    .menu-icon {
+        display: flex;
+    }
 
     nav ul {
         position: fixed;
@@ -229,12 +242,23 @@ footer {
         transition: 0.4s ease-in-out;
     }
 
-    #check:checked ~ ul {
+    /*Responsividade celular pequeno*/
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 1.8rem;
+        }
+
+        .btn-cta {
+            width: 90%;
+        }
+    }
+
+    #check:checked~ul { /*quando clica no botão aparece o menu(celular)*/
         left: 0;
     }
 
     .hero {
-        background-attachment: scroll; /* Melhora performance mobile */
+        background-attachment: scroll;
     }
 
     .hero-content h1 {
@@ -246,11 +270,6 @@ footer {
     }
 
     .cards-servicos {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /*defini as colunas de um layout*/
     }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 { font-size: 1.8rem; }
-    .btn-cta { width: 90%; }
 }
